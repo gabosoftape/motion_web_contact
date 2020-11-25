@@ -86,7 +86,7 @@ class ContactHome(Home):
     # ------------------------------------------------------------
     # AGREGAR Mensaje de contacto
     # ------------------------------------------------------------
-    @http.route(['/contacto/new'], auth="none", type='http', website=True)
+    @http.route(['/contacto/new'], auth="none", type='http', csrf=False, website=True)
     def contact_add(self, **post):
         # recibimos las variables de post
         nombre = post.get('nombre')
