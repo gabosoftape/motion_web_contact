@@ -27,8 +27,8 @@
     'version': '13.0.1.0',
     'category': 'Website',
     'summary': """
-The new configurable Odoo Web Login Screen
-""",
+            The new configurable Odoo Web Login Screen
+            """,
     'author': "Gabriel Pabon LTD",
     'website': "https://www.monitoringinnovation.com",
     'license': 'AGPL-3',
