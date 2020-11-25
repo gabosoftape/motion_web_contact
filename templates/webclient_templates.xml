@@ -74,21 +74,21 @@
 				</div>
 
 				<div><!--División del centro-->
-					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+					<input type="hidden" name="csrf_token" id="tokenIn" t-att-value="request.csrf_token()" />
 					<label>Nombre*</label><br/>
-						<input class="input-form" type="text" name="nombre" placeholder="Nombre Completo" required=""/>
+						<input id="nombreIn" class="input-form" type="text" name="nombre" placeholder="Nombre Completo" required=""/>
 							<br/>
 
 					<label>Teléfono*</label><br/>
-						<input class="input-form" type="tel" name="telefono" placeholder="Celular" required=""/>
+						<input id="telefonoIn" class="input-form" type="tel" name="telefono" placeholder="Celular" required=""/>
 							<br/>
 
 					<label>E-mail*</label><br/>
-						<input class="input-form" type="email" name="email" placeholder="Correo Electrónico" required=""/>
+						<input id="emailIn" class="input-form" type="email" name="email" placeholder="Correo Electrónico" required=""/>
 							<br/>
 
 					<label>Empresa</label><br/>
-						<input class="input-form" type="text" name="empresa" placeholder="Nombre de su Empresa" required=""/>
+						<input id="empresaIn" class="input-form" type="text" name="empresa" placeholder="Nombre de su Empresa"/>
 							<br/>
 
 				</div>
@@ -96,11 +96,11 @@
 				<div><!--División de la derecha-->
 
 					<label>Asunto*</label><br/>
-						<input class="input-form" type="text" name="asunto" placeholder="Asunto del mensaje" required=""/>
+						<input id="asuntoIn" class="input-form" type="text" name="asunto" placeholder="Asunto del mensaje" required=""/>
 							<br/>
 
 					<label>Solicitud*</label><br/>
-						<textarea class="input-form input-message" type="text" name="solicitud" placeholder="Escriba su mensaje aquí"></textarea>
+						<textarea id="solicitudIn" class="input-form input-message" type="text" name="solicitud" placeholder="Escriba su mensaje aquí"></textarea>
 							<br/>
 
 					<div class="form-selections"><!--Esta es la parte inferior del login-->
