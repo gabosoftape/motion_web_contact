@@ -116,10 +116,11 @@ class ContactHome(Home):
                 er = {'error': _('Invalid Creation.')}
                 return request.make_response(json.dumps(er))
             # redirigimos a okas morrocas xD
-            return request.make_response({'msg': 'okas morrocas'})
+            res = {'msg': 'okas morrocas'}
+            return request.make_response(json.dumps(res))
         else:
             # redirigimos a error o a ok dependiendo las validaciones
             # detectamos los factores de error comunes.
-            er = {'error': _('No se pudo crear contacto.')}
+            er = {'error': 'No se pudo crear contacto.'}
             return request.make_response(json.dumps(er))
 
