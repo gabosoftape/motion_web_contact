@@ -17,6 +17,7 @@
                 odoo.session_info = <t t-raw="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>;
             </script>
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.2/dist/sweetalert2.all.min.js"></script>
+			<script type="text/javascript" src="/motion_web_contact/static/src/js/main.js"></script>
         </xpath>
         <xpath expr="//t[@t-raw='0']" position="replace">
             <!-- aqui va el header-->
