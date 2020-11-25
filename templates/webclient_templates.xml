@@ -13,10 +13,12 @@
 			<link rel="stylesheet" href="/motion_web_contact/static/src/webfont/style.css"/>
         </xpath>
         <xpath expr="//head/script" position="after">
-            <script type="text/javascript">
+			<script type="text/javascript">
                 odoo.session_info = <t t-raw="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>;
             </script>
+			<script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.2/dist/sweetalert2.all.min.js"></script>
+
 			<script type="text/javascript" src="/motion_web_contact/static/src/js/main.js"></script>
         </xpath>
         <xpath expr="//t[@t-raw='0']" position="replace">
