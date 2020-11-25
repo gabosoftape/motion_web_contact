@@ -83,7 +83,7 @@ function postNewContact(){
         'empresa': empresa,
         'medio': medio,
         'state': state,
-        'token': token;
+        'token': token,
     }
     // si almenos contiene nombre, telefono, asunto , solicitud y email posteamos, si no deshabilitamos el boton, hasta que sea posible.
     if(nombre && telefono && asunto && solicitud && email){
