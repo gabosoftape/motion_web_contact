@@ -247,6 +247,10 @@ $( document ).ready(function() {
     });
     $('#btn_enviar').click(function(){
         console.log('Se hizo click en el boton mdfkr');
-        createContactMsg();
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No puedes generar el informe, dejaste algun campo importante vacio!. Verifica la informacion e intenta de nuevo.',
+        });
     });
 });
