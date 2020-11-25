@@ -91,7 +91,7 @@ function postNewContact(){
         $.ajax({
             type: "POST",
             url: "/contacto/new",
-            data: dataContact,
+            data: JSON.stringify(dataContact),
             success: function(blob, status, xhr) {
                 // check for a filename
                 console.log('este es el size del blob');
