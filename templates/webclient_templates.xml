@@ -116,23 +116,4 @@
 			</form>
 		</t>
 	</template>
-	<!-- Formulario error -->
-	<template id="portal_contact_error" name="Error">
-		<t t-call="motion_web_contact.portal_layout">
-			<form class="form">
-				Error
-			</form>
-		</t>
-	</template>
-	<!-- Formulario ok -->
-	<template id="portal_contact_ok" name="Mensaje enviado">
-		<t t-call="motion_web_contact.portal_layout">
-			<form class="form">
-				<div>
-					¡Muchas gracias por comunicarese con nosotros! Sus preguntas y opinion son muy importantes para nosotros y responderemos tan pronto como nos sea posible.
-				</div>
-				<a class="btn btn-primary" href="/">Inicio</a>
-			</form>
-		</t>
-	</template>
 </odoo>
