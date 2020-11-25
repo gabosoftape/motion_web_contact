@@ -175,6 +175,7 @@ function isPostPossible(){
         });
     }else{
         // ya no se puede postear mas
+        // deshabilitamos boton, y cada que cambie un input verificamos que se pueda postear
     }
     return status
 
