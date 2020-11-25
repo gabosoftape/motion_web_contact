@@ -112,6 +112,7 @@ function postNewContact(){
 }
 
 $( document ).ready(function() {
+    isPostPossible();
     $('#btn_enviar').click(function(){
         console.log('Se hizo click en el boton mdfkr');
         postNewContact();
