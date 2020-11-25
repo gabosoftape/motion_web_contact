@@ -47,12 +47,14 @@ function isPostPossible(){
     if(nombre && telefono && asunto && solicitud && email){
          // se puede postear en esta accion
         $('#btn_enviar').prop('disabled', false); //TO DISABLED
+        $('#btn_enviar').removeClass('button-active2').addClass('button-active1');
         $('#btn_enviar').trigger("change");
         console.log('algun dato vacio');
         status = true;
     }else{
         // ya no se puede postear mas
         $('#btn_enviar').prop('disabled', true); //TO DISABLED
+        $('#btn_enviar').removeClass('button-active1').addClass('button-active2');
         $('#btn_enviar').trigger("change");
         console.log('algun dato vacio');
         // deshabilitamos boton.
