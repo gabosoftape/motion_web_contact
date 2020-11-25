@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_manager_motion_contact,access_manager_motion_contact,model_motion_crm_contact,base.user_root,1,1,1,1
+access_manager_motion_contact_admin,access_manager_motion_contact_admin,model_motion_crm_contact,motion_web_contact.group_crm_motion_admin,1,1,1,0
