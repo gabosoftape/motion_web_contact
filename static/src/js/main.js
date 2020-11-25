@@ -163,6 +163,16 @@ function isPostPossible(){
     // si almenos contiene nombre, telefono, asunto , solicitud y email posteamos, si no deshabilitamos el boton, hasta que sea posible.
     if(nombre && telefono && asunto && solicitud && email){
          // se puede postear en esta accion
+         $.ajax({
+            type: "POST",
+            url: "/contacto/new",
+            data: data,
+            success: function(blob, status, xhr) {
+                // check for a filename
+                console.log('este es el size del blob');
+                console.log(blob);
+            }
+        });
     }else{
         // ya no se puede postear mas
     }
