@@ -92,10 +92,10 @@ function postNewContact(){
             type: "POST",
             url: "/contacto/new",
             data: JSON.stringify(dataContact),
-            success: function(blob, status, xhr) {
+            success: function(response) {
                 // check for a filename
                 console.log('este es el size del blob');
-                console.log(blob);
+                console.log(response);
             }
         });
 
