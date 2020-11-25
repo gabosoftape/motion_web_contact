@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Motion layout frontend login-->
+    <template id="frontend_layout" name="Frontend Motion login Layout" inherit_id="web.layout" primary="True">
+        <xpath expr="//head/title" position="replace">
+            <title t-esc="page_name"/>
+        </xpath>
+        <xpath expr="//head/link[@type='image/x-icon']" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" href="/motion_web_contact/static/src/ico/favicon.ico"/>
+        </xpath>
+        <xpath expr="//head/link[last()]" position="after">
+            <link rel="stylesheet" href="/motion_web_contact/static/src/css/web_login_style.css"/>
+			<link rel="stylesheet" href="/motion_web_contact/static/src/webfont/style.css"/>
+        </xpath>
+        <xpath expr="//head/script" position="after">
+            <script type="text/javascript">
+                odoo.session_info = <t t-raw="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>;
+            </script>
+        </xpath>
+        <xpath expr="//t[@t-raw='0']" position="replace">
+            <!-- aqui va el header-->
+            <!--Esta es la gradación de fondo-->
+			<div class="bg-gradient">
+
+				<div class="bg-photo"><!--Esta es la fotografía de fondo con transparencia-->
+				</div>
+
+				<div class="bg-gradient-2"><!--Esta es la gradación vetical para dar legibilidad al logo-->
+				</div>
+
+				<div class="logo-motion"><!--Este es el logo-->
+					<a href="/"><img src="/motion_web_contact/static/src/img/motion-logo.svg" alt="motion-logo"/></a>
+				</div>
+
+				<div>
+					<t t-raw="0"/>
+				</div>
+
+				<footer class="footer">
+
+					<p>&amp;copy; 2020 Copyright  <a href="https://monitoringinnoation.com">A.B Comercial LTDA</a></p>
+
+				</footer>
+
+			</div>
+        </xpath>
+    </template>
+    <!-- motion portal layout -->
+    <template id="portal_layout" name="Portal Enlistcontrol Layout">
+        <t t-call="motion_web_contact.frontend_layout">
+            <div>
+                <t t-raw="0"/>
+            </div>
+        </t>
+    </template>
+	<!-- Formulario de contacto -->
+	<template id="portal_contact_form" name="Formulario de contacto">
+		<t t-call="motion_web_contact.portal_layout">
+			<form class="form" t-attf-action="/contacto/new" method="POST"><!--Esta es la tarjeta para el login-->
+				<div><!--División de la izquierda-->
+
+					<h1>Contáctenos!</h1>
+
+					<dl>
+						<li>Ubicación<strong>Carrera 16a No.70a-74 Bogota, CO</strong></li>
+						<li>Correo electrónico<strong>contacto@monitoringinnovation.com</strong></li>
+						<li>Teléfonos<strong>+57 3209529373 / +57 (1)6091002</strong></li>
+					</dl>
+
+				</div>
+
+				<div><!--División del centro-->
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+					<label>Nombre*</label><br/>
+						<input class="input-form" type="text" name="nombre" placeholder="Nombre Completo" required=""/>
+							<br/>
+
+					<label>Teléfono*</label><br/>
+						<input class="input-form" type="tel" name="telefono" placeholder="Celular" required=""/>
+							<br/>
+
+					<label>E-mail*</label><br/>
+						<input class="input-form" type="email" name="email" placeholder="Correo Electrónico" required=""/>
+							<br/>
+
+					<label>Empresa</label><br/>
+						<input class="input-form" type="text" name="empresa" placeholder="Nombre de su Empresa" required=""/>
+							<br/>
+
+				</div>
+
+				<div><!--División de la derecha-->
+
+					<label>Asunto*</label><br/>
+						<input class="input-form" type="text" name="asunto" placeholder="Asunto del mensaje" required=""/>
+							<br/>
+
+					<label>Solicitud*</label><br/>
+						<textarea class="input-form input-message" type="text" name="solicitud" placeholder="Escriba su mensaje aquí"></textarea>
+							<br/>
+
+					<div class="form-selections"><!--Esta es la parte inferior del login-->
+
+						<!--<a class="forgotten-password" href="#">He olvidado mi contraseña</a><br/>-->
+
+						<button class="button-active2" role="link" onclick="window.location='/'" name="FreeDemo">Demo</button>
+
+						<button class="button-active1" type="submit" name="Ingresar">Enviar</button>
+
+						<!--<a class="register-option" href="#">Registrarme</a>-->
+
+					</div>
+
+				</div>
+
+			</form>
+		</t>
+	</template>
+	<!-- Formulario error -->
+	<template id="portal_contact_error" name="Error">
+		<t t-call="motion_web_contact.portal_layout">
+			<form class="form">
+				Error
+			</form>
+		</t>
+	</template>
+	<!-- Formulario ok -->
+	<template id="portal_contact_ok" name="Mensaje enviado">
+		<t t-call="motion_web_contact.portal_layout">
+			<form class="form">
+				Todo copitas
+			</form>
+		</t>
+	</template>
+</odoo>

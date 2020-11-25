@@ -1,0 +1,74 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="contact_list">
+      <field name="name">Lista contactos web</field>
+      <field name="model">motion.crm_contact</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="nombre"/>
+            <field name="telefono"/>
+            <field name="asunto"/>
+            <field name="solicitud"/>
+            <field name="email"/>
+            <field name="empresa"/>
+            <field name="medio"/>
+        </tree>
+      </field>
+    </record>
+    <!-- formulario alistamientos-->
+
+    <record id="fuec_form" model="ir.ui.view">
+            <field name="name">Formulario Contacto</field>
+            <field name="model">motion.crm_contact</field>
+            <field name="arch" type="xml">
+                <form string="Contacto" attrs="{'readonly':[('state','=','creado')]}">
+                    <header>
+                        <field name="state"/>
+                    </header>
+                    <sheet>
+                         <group string="Formulario de contacto portal">
+                            <field name="nombre" />
+                            <field name="telefono" />
+                            <field name="asunto" />
+                            <field name="solicitud"/>
+                            <field name="email" />
+                            <field name="empresa" />
+                            <field name="medio" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="contactmotion_action_window">
+        <field name="name">Control de Fuec</field>
+        <field name="res_model">motion.crm_contact</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="contact_list"/>
+    </record>
+
+     <record id="contact_search" model="ir.ui.view">
+        <field name="name">contact serch</field>
+        <field name="model">motion.crm_contact</field>
+        <field name="arch" type="xml">
+            <search string="Contacto">
+                <field name="nombre" />
+                <field name="telefono"/>
+                <field name="asunto"/>
+            </search>
+        </field>
+    </record>
+    <!-- Top menu item -->
+    <menuitem name="CRM PORTAL" id="motion_crm_menu_root" web_icon="motion_web_contact,static/description/icon.png"/>
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="alistamientos.menu_1" parent="alistamientos.menu_root"/>
+    -->
+    <menuitem name="Mensajes Contacto" id="contact_menu_1" parent="motion_crm_menu_root"/>
+    <!-- actions -->
+    <menuitem name="Administrar" id="menu_admin_contact" parent="contact_menu_1" action="contactmotion_action_window"/>
+  </data>
+</odoo>

@@ -1,0 +1,372 @@
+@charset "utf-8";
+
+body, html{ /*Fuentes, color y clases para el cuerpo del sitio web*/
+	font-family: "Ubuntu Regular";
+	font-size: 14px;
+	color: rgb(139,140,140);
+	height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/******************----- Estos son los colores de la marca ---------*******************/
+
+.magenta{
+	color: rgb(198,0,126);
+}
+.azul{
+	color: rgb(0,71,187);
+}
+.cyan{
+	color: rgb(1,190,219);
+}
+.gris{
+	color: rgb(139,140,140);
+}
+.gris-75{
+	color: rgb(168,168,168);
+}
+.gris-50{
+	color: rgb(197,197,197);
+}
+.gris-25{
+	color: rgb(226,226,226);
+}
+
+/******************----- Estos son las clases en general ---------*******************/
+
+.button-active1{/*Clase para el botón de la tarjeta del login*/
+	height: 34px;
+	padding: 0 2em;
+    border: none;
+    margin: auto;
+	border-radius: 17px;
+	background: linear-gradient(to bottom right, rgb(198,0,126), rgba(198,0,126,75%));
+	box-shadow: 0px 0px 4px 2px rgba(197,197,197,50%);
+	color: white;
+    font-family: "Ubuntu Medium";
+    z-index: 2;
+	transition: .2s ease-in-out;
+}
+
+.button-active1:hover{/*Clase para el el hover del botón de la tarjeta del login*/
+	cursor: pointer;
+    height: 38px;
+    padding: 0 3em;;
+	border-radius: 19px;
+	background: linear-gradient(to bottom right, rgba(0,71,187), rgb(1,190,219));
+	box-shadow: 0px 0px 8px 4px rgb(197,197,197);
+	font-family: "Ubuntu Bold";
+}
+
+.button-active2{/*Clase para el botón de la tarjeta del login*/
+	height: 34px;
+	padding: 0 2em;
+    border: solid 2px rgb(197,197,197);
+    margin: auto;
+	border-radius: 17px;
+	background-color: white;
+	color: rgb(197,197,197);
+    font-family: "Ubuntu Medium";
+    z-index: 1;
+	transition: .2s ease-in-out;
+}
+
+.button-active2:hover{/*Clase para el el hover del botón de la tarjeta del login*/
+	cursor: pointer;
+    height: 38px;
+    padding: 0 3em;
+    border: solid 2px rgb(139,140,140);
+	border-radius: 19px;
+    color: rgb(139,140,140);
+	font-family: "Ubuntu Bold";
+}
+
+/******************----- Estas son las clases del login ---------*******************/
+
+/******************* FONDO *******************/
+
+.bg-gradient{ /*Clase para la gradación de fondo*/
+	position: relative;
+	background: linear-gradient(to top left, rgb(1,190,219), rgb(0,71,187) 60%);
+	height: 100%;
+	z-index: 0;
+}
+
+.bg-photo{ /*Clase para la fotografía con transparencia*/
+	position: relative;
+	height: 100%;
+	background-image: url("/motion_web_contact/static/src/img/background.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 75%;
+	mix-blend-mode: overlay;
+	z-index: 1;
+}
+
+.bg-gradient-2{ /*Clase para la gradación vertical que hace legible el logo*/
+	position: absolute;
+	background: linear-gradient(to top, rgba(1,190,219,0) , rgb(0,71,187) 90%);
+	height: 75%;
+	width: 100%;
+	top: 0px;
+	opacity: 80%;
+	z-index: 2;
+}
+
+/******************* LOGO *******************/
+
+.logo-motion{/*Clase para el logo*/
+	position: fixed;
+	top: 5%;
+	width: 190px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	transition: .4s ease-in-out;
+}
+
+.logo-motion:hover{
+	width: 220px;
+}
+
+/******************* LOGIN *******************/
+
+.form{/*Clase para la tarjeta de login*/
+	box-shadow: 0px 0px 0px 0px rgba(0,71,187,0%);
+	background: white;
+	position: fixed;
+	padding: 30px;
+	margin: auto;
+	border-radius: 15px;
+	line-height: 38px;
+	width: fit-content;
+	height: fit-content;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	transition: .5s ease-in-out;
+}
+
+.form:hover{
+	box-shadow: 0px 0px 20px 10px rgba(0,71,187,75%);
+	padding: 40px;
+}
+
+.form>div{
+    float: left;
+    padding: 20px;
+    width: 240px;
+}
+
+.form h1{
+	margin: 0;
+	color: rgb(0,71,187);
+}
+
+.form li{
+    list-style-type: none;
+    color: rgb(197,197,197);
+    font-family: "Ubuntu Light";
+}
+
+.form li strong{
+    display: block;
+    color: rgb(139,140,140);
+    font-family: "Ubuntu Regular";
+}
+
+.input-form{/*Clase para los inputs del login*/
+    width: 220px;
+	padding: 6px 10px;
+	border: 0;
+	border: solid 2px rgb(226,226,226);
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(139,140,140);
+	font-family: "Ubuntu Light";
+	font-weight: 100;
+	font-size: 16px;
+}
+
+form input:selected{
+	color: rgb(139,140,140);
+}
+
+form input:hover{/*Clase para el hover en los inputs del login*/
+	border: solid 2px rgb(197,197,197);
+}
+
+form input:focus{/*Clase para los inputs del login*/
+	outline: none;
+	border: solid 2px rgb(139,140,140);
+	color: rgb(139,140,140);
+}
+
+::placeholder{/*Clase para los textos iniciales en los inputs*/
+	color: rgb(197,197,197);
+	font-family: "Ubuntu Light";
+}
+
+.input-message{
+    height: 6em;
+    resize: none;
+}
+
+.form-selections{/*Clase para la parte inferior de la tarjeta*/
+	text-align: center;
+    margin-top: 1.75em;
+}
+
+.forgotten-password{/*Clase para el link de recuperar contraseña*/
+	color: rgb(197,197,197);
+}
+
+.forgotten-password:hover{
+	color: rgb(139,140,140);
+}
+
+.register-option{/*Clase para el link de registro*/
+	color: rgb(139,140,140);
+}
+
+.register-option:hover{
+	color: rgb(198,0,126);
+	font-family: "Ubuntu Bold";
+}
+
+/******************* FOOTER *******************/
+
+.footer{ /*Esta es la clase del footer*/
+	color: white;
+	text-align: center;
+	position: fixed;
+	margin: auto;
+	text-shadow: 0px 0px 6px rgb(0,71,187);
+	left: 0;
+	right: 0;
+	bottom: 5%;
+	z-index: 4;
+}
+
+.footer a{
+	color: white;
+}
+
+/******************----- DESDE ACÁ EMPIEZAN LAS CLASES PARA PANTALLAS GRANDES EN MODO RETRATO ---------*******************/
+
+@media screen and (min-width:750px) and (orientation:portrait){
+
+	.logo-motion{/*Clase para el logo*/
+		top: 10%;
+		width: 40%;
+	}
+
+	.logo-motion:hover{
+		width: 50%;
+	}
+
+	.form:hover{
+		box-shadow: 0px 0px 40px 20px rgba(0,71,187,75%);
+	}
+
+}
+
+/******************----- DESDE ACÁ EMPIEZAN LAS CLASES PARA PANTALLAS DE DISPOSITIVOS EN MODO RETRATO ---------*******************/
+
+@media screen and (max-width:750px) and (orientation:portrait){
+
+	body, html{ /*Fuentes, color y clases para el cuerpo del sitio web*/
+		font-size: 10px !important;
+	}
+
+	.logo-motion{/*Clase para el logo*/
+		top: 10%;
+		width: 50%;
+	}
+
+	.form{/*Clase para la tarjeta de login*/
+		box-shadow: 0px 0px 0px 0px rgba(0,71,187,0%);
+		padding: 8px;
+		line-height: 24px;
+	}
+
+	.form:hover{
+		box-shadow: 0px 0px 40px 20px rgba(0,71,187,75%);
+		padding: 12px;
+	}
+
+	.input-form{/*Clase para los inputs del login*/
+		max-width: 180px;
+		font-size: 12px;
+	}
+
+	.form-selections{/*Clase para la parte inferior de la tarjeta*/
+		line-height: 1em;
+		margin-top: 1.5em;
+	}
+
+	.button-active1, .button-active2{/*Clase para el botón de la tarjeta del login*/
+        height: 22px;
+        margin: 0;
+		border-radius: 11px;
+		box-shadow: 0px 0px 8px 4px rgba(197,197,197,50%);
+	}
+
+	.button-active1:hover, .button-active2{/*Clase para el el hover del botón de la tarjeta del login*/
+        height: 30px;
+        margin: 0;
+		border-radius: 15px;
+		box-shadow: 0px 0px 16px 8px rgb(197,197,197);
+	}
+
+}
+
+/******************----- AQUÍ EMPIEZA LA CLASE PARA PANTALLAS PEQUEÑAS EN MODO HORIZONTAL ---------*******************/
+
+@media screen and (max-width:1000px) and (orientation:landscape){
+
+	body, html{ /*Fuentes, color y clases para el cuerpo del sitio web*/
+		font-size: 8px !important;
+	}
+
+	.form{/*Clase para la tarjeta de login*/
+		padding: 8px;
+		line-height: 22px;
+	}
+
+	.form:hover{
+		box-shadow: 0px 0px 40px 20px rgba(0,71,187,75%);
+		padding: 12px;
+	}
+
+	.input-form{/*Clase para los inputs del login*/
+		max-width: 180px;
+		font-size: 12px;
+	}
+
+	.form-selections{/*Clase para la parte inferior de la tarjeta*/
+		line-height: .5em;
+		margin-top: 2em;
+	}
+
+	.button-active1, .button-active2{/*Clase para el botón de la tarjeta del login*/
+        height: 16px;
+        margin: 0;
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px rgba(197,197,197,50%);
+		font-size: 9px;
+	}
+
+	.button-active1:hover, .button-active2:hover{/*Clase para el el hover del botón de la tarjeta del login*/
+        height: 20px;
+        margin: 0;
+		border-radius: 10px;
+		box-shadow: 0px 0px 16px 8px rgb(197,197,197);
+	}
+
+}
