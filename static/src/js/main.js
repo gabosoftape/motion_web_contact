@@ -184,67 +184,6 @@ function canipost(){
 }
 
 $( document ).ready(function() {
-
-    $('.js-example-basic-multiple').select2();
-    // funcion para obtener los conductores del select multiple y colocarlos en un input hidden.
-    //console.log(valores);
-    // funcion para obtener los responsables del select multiple y colocarlos en un input hidden.
-    $('#date_ini').on('change', function() {
-
-    });
-    $('#date_end').on('change', function() {
-
-    });
-    var unitsSelect = [];
-    $('#selectpickerUnidades').on('change', function() {
-        //alert( $(this).val() );
-
-        $("#unidadesinput").val('');
-        unitsSelect = [];
-        unitsSelect.push($(this).val());
-        $("#unidadesinput").val(unitsSelect);
-    });
-    var driversSelect = [];
-    $('#selectpickerConductores').on('change', function() {
-        //alert( $(this).val() );
-
-        $("#conductoresinput").val('');
-        driversSelect = [];
-        driversSelect.push($(this).val());
-        $("#conductoresinput").val(driversSelect);
-    });
-    $('#select_all_units').click(function() {
-        $('#selectpickerUnidades option').prop('selected', true);
-        $("#unidadesinput").val('');
-        unitsSelect = [];
-        unitsSelect.push($('#selectpickerUnidades').val());
-        $("#unidadesinput").val(unitsSelect);
-        $("#selectpickerUnidades").trigger("change");
-    });
-    $('#select_all_drivers').click(function() {
-        $('#selectpickerConductores option').prop('selected', true);
-        $("#conductoresinput").val('');
-        driversSelect = [];
-        driversSelect.push($('#selectpickerConductores').val());
-        $("#conductoresinput").val(driversSelect);
-        $("#selectpickerConductores").trigger("change");
-    });
-    $('#deselect_all_units').click(function() {
-        $('#selectpickerUnidades option').prop('selected', false);
-        $("#unidadesinput").val('');
-        unitsSelect = [];
-        unitsSelect.push($('#selectpickerUnidades').val());
-        $("#unidadesinput").val(unitsSelect);
-        $("#selectpickerUnidades").trigger("change");
-    });
-    $('#deselect_all_drivers').click(function() {
-        $('#selectpickerConductores option').prop('selected', false);
-        $("#conductoresinput").val('');
-        driversSelect = [];
-        driversSelect.push($('#selectpickerConductores').val());
-        $("#conductoresinput").val(driversSelect);
-        $("#selectpickerConductores").trigger("change");
-    });
     $('#btn_enviar').click(function(){
         console.log('Se hizo click en el boton mdfkr');
         Swal.fire({
