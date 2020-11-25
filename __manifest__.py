@@ -35,6 +35,7 @@
     'depends': [
     ],
     'data': [
+        'security/crm_security.xml',
         'views/contact_backend.xml',
         'templates/webclient_templates.xml',
         'security/ir.model.access.csv'
