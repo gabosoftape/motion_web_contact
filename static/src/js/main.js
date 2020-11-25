@@ -116,6 +116,53 @@ function createContactMsg(){
     console.log(jsonstr);
 }
 
+function isPostPossible(){
+    var status = false;
+    var data = $('#contact_form').serializeArray();
+    var nombre = false;
+    var token = false;
+    var telefono = false;
+    var asunto = false;
+    var solicitud = false;
+    var email = false;
+    var empresa = false;
+    var medio = false;
+    var state = 'nuevo';
+    // revisamos si viene algun dato nulo y aprovechamos para clasificar la info
+    $.each( data, function( name, value ) {
+      switch(value.name){
+        case 'csrf_token':
+            token = value.value;
+            break;
+        case 'nombre':
+            nombre = value.value;
+            break;
+        case 'telefono':
+            telefono = value.value;
+            break;
+        case 'asunto':
+            asunto  = value.value;
+            break;
+        case 'solicitud':
+            solicitud = value.value;
+            break;
+        case 'email':
+            email = value.value;
+            break;
+        case 'empresa':
+            solicitud = value.value;
+            break;
+        case 'medio':
+            email = value.value;
+            break;
+        default:
+            console.log('is otro dato');
+            break;
+      }
+    });
+    return status
+
+}
 function getReport(data){
     $.ajax({
             type: "POST",
