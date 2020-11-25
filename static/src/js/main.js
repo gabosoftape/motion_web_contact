@@ -150,16 +150,22 @@ function isPostPossible(){
             email = value.value;
             break;
         case 'empresa':
-            solicitud = value.value;
+            empresa = value.value;
             break;
         case 'medio':
-            email = value.value;
+            medio = value.value;
             break;
         default:
             console.log('is otro dato');
             break;
       }
     });
+    // si almenos contiene nombre, telefono, asunto , solicitud y email posteamos, si no deshabilitamos el boton, hasta que sea posible.
+    if(nombre && telefono && asunto && solicitud && email){
+         // se puede postear en esta accion
+    }else{
+        // ya no se puede postear mas
+    }
     return status
 
 }
