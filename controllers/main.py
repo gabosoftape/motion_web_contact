@@ -114,30 +114,12 @@ class ContactHome(Home):
                 request.env['motion.crm_contact'].sudo().create(values)
             except (AccessError, MissingError):
                 er = {'error': _('Invalid Creation.')}
-                return request.redirect('/contacto/error')
+                return request.make_response(json.dumps(er))
             # redirigimos a okas morrocas xD
-            return request.redirect('/contacto/ok')
+            return request.make_response({'msg': 'okas morrocas'})
         else:
             # redirigimos a error o a ok dependiendo las validaciones
             # detectamos los factores de error comunes.
-            return request.redirect('/contacto/error')
+            er = {'error': _('No se pudo crear contacto.')}
+            return request.make_response(json.dumps(er))
 
-    # ------------------------------------------------------------
-    # Error creando contacto
-    # ------------------------------------------------------------
-    @http.route(['/contacto/error'], auth="none", type='http', website=True)
-    def contact_error(self, **post):
-        # recibimos las variables de post
-        response = request.render("motion_web_contact.portal_contact_error")
-        response.headers['X-Frame-Options'] = 'DENY'
-        return response
-
-    # ------------------------------------------------------------
-    # Contacto creado satisfactoriamente
-    # ------------------------------------------------------------
-    @http.route(['/contacto/ok'], auth="none", type='http', website=True)
-    def contact_ok(self, **post):
-        # recibimos las variables de post
-        response = request.render("motion_web_contact.portal_contact_ok")
-        response.headers['X-Frame-Options'] = 'DENY'
-        return response
