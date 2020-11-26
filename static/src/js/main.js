@@ -120,11 +120,6 @@ $( document ).ready(function() {
     isPostPossible();
     $('#btn_enviar').click(function(){
         console.log('Se hizo click en el boton mdfkr');
-        //postNewContact();
-        /*$('#btn_enviar').submit(function( event ) {
-          alert( "Handler for .submit() called." );
-          event.preventDefault();
-        });*/
         Swal.fire({
           position: 'center',
           icon: 'success',
