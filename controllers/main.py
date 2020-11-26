@@ -88,6 +88,7 @@ class ContactHome(Home):
     # ------------------------------------------------------------
     @http.route(['/contacto/new'], auth="none", type='http', website=True)
     def contact_add(self, **post):
+        print(post)
         # recibimos las variables de post
         nombre = post.get('nombre')
         telefono = post.get('telefono')
