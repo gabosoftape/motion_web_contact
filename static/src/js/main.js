@@ -130,7 +130,7 @@ $( document ).ready(function() {
           icon: 'success',
           title: 'Se envio correctamente el mensaje.',
           showConfirmButton: false,
-          timer: 5500
+          timer: 9500
         });
     });
     $('#nombreIn').on('change', function() {
