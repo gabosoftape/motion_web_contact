@@ -96,7 +96,6 @@ class ContactHome(Home):
         solicitud = post.get('solicitud')
         email = post.get('email')
         empresa = post.get('empresa')
-        medio = post.get('medio')
         # en caso de que se cuenten con los minimos datos
         if nombre and telefono and asunto and solicitud and email:
             print('parece que todo ok')
@@ -121,6 +120,5 @@ class ContactHome(Home):
         else:
             # redirigimos a error o a ok dependiendo las validaciones
             # detectamos los factores de error comunes.
-            er = {'error': 'No se pudo crear contacto.'}
-            return request.make_response(json.dumps(er))
+            return request.redirect("/")
 
