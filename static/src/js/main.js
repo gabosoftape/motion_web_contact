@@ -125,7 +125,7 @@ $( document ).ready(function() {
           icon: 'success',
           title: 'Se envio correctamente el mensaje.',
           showConfirmButton: false,
-          timer: 9500
+          timer: 1500
         });
     });
     $('#nombreIn').on('change', function() {
