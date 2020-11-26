@@ -125,7 +125,13 @@ $( document ).ready(function() {
           alert( "Handler for .submit() called." );
           event.preventDefault();
         });*/
-
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Se envio correctamente el mensaje.',
+          showConfirmButton: false,
+          timer: 1500
+        });
     });
     $('#nombreIn').on('change', function() {
        isPostPossible();
