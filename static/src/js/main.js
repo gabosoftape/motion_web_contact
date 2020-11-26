@@ -48,7 +48,7 @@ function isPostPossible(){
          // se puede postear en esta accion
         $('#btn_enviar').prop('disabled', false); //TO DISABLED
         $('#btn_enviar').removeClass('button-active2').addClass('button-active1');
-        $( '#btn_enviar' ).attr( "type", "submit" );
+       // $( '#btn_enviar' ).attr( "type", "submit" );
         $('#btn_enviar').trigger("change");
         console.log('algun dato vacio');
         status = true;
@@ -56,7 +56,7 @@ function isPostPossible(){
         // ya no se puede postear mas
         $('#btn_enviar').prop('disabled', true); //TO DISABLED
         $('#btn_enviar').removeClass('button-active1').addClass('button-active2');
-        $( '#btn_enviar' ).attr( "type", "" );
+        //$( '#btn_enviar' ).attr( "type", "" );
         $('#btn_enviar').trigger("change");
         console.log('algun dato vacio');
         // deshabilitamos boton.
@@ -121,10 +121,11 @@ $( document ).ready(function() {
     $('#btn_enviar').click(function(){
         console.log('Se hizo click en el boton mdfkr');
         //postNewContact();
-    });
-    $('#btn_enviar').submit(function( event ) {
-      alert( "Handler for .submit() called." );
-      event.preventDefault();
+        /*$('#btn_enviar').submit(function( event ) {
+          alert( "Handler for .submit() called." );
+          event.preventDefault();
+        });*/
+
     });
     $('#nombreIn').on('change', function() {
        isPostPossible();
