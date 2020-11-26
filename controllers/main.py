@@ -117,8 +117,7 @@ class ContactHome(Home):
                 er = {'error': _('Invalid Creation.')}
                 return request.make_response(json.dumps(er))
             # redirigimos a okas morrocas xD
-            res = {'msg': 'okas morrocas'}
-            return request.make_response(json.dumps(res))
+            return request.redirect("/contacto")
         else:
             # redirigimos a error o a ok dependiendo las validaciones
             # detectamos los factores de error comunes.
