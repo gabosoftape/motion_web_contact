@@ -3,7 +3,7 @@ import time
 from odoo import models, fields, api
 
 
-class motionContact(models.Model):
+class motionOportunities(models.Model):
     _name = 'motion.crm_motion_oportunities'
     _description = 'Mensajes de contacto'
     _rec_name = 'nombre'
@@ -25,5 +25,5 @@ class motionContact(models.Model):
 
     @api.model
     def create(self, vals):
-        result = super(motionContact, self).create(vals)
+        result = super(motionOportunities, self).create(vals)
         return result
