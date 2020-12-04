@@ -29,7 +29,7 @@
             <field name="arch" type="xml">
                 <form string="Contacto Oportuno" attrs="{'readonly':[('state','=','concretado')]}">
                     <header>
-                        <field name="state"/>
+                        <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
                          <group string="Formulario de oportunidad nueva">
