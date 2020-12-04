@@ -29,6 +29,7 @@
             <field name="arch" type="xml">
                 <form string="Contacto Oportuno" attrs="{'readonly':[('state','=','concretado')]}">
                     <header>
+                        <field name="fecha" widget="datetime"/>
                         <field name="state" widget="statusbar" clickable="True"/>
                     </header>
                     <sheet>
@@ -43,7 +44,6 @@
                             <field name="tel2"/>
                             <field name="direccion"/>
                             <field name="comentarios"/>
-                            <field name="fecha"/>
                         </group>
                     </sheet>
                 </form>
