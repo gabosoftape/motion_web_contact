@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="oportunities_list">
+      <field name="name">Lista Oportunidades</field>
+      <field name="model">motion.crm_motion_oportunities</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="nombre"/>
+            <field name="telefono"/>
+            <field name="asunto"/>
+            <field name="solicitud"/>
+            <field name="email"/>
+            <field name="empresa"/>
+            <field name="medio"/>
+        </tree>
+      </field>
+    </record>
+    <!-- formulario alistamientos-->
+
+    <record id="oportunities_form" model="ir.ui.view">
+            <field name="name">Formulario Oportunidad</field>
+            <field name="model">motion.crm_motion_oportunities</field>
+            <field name="arch" type="xml">
+                <form string="Contacto Oportuno" attrs="{'readonly':[('state','=','concretado')]}">
+                    <header>
+                        <field name="state"/>
+                    </header>
+                    <sheet>
+                         <group string="Formulario de oportunidad nueva">
+                            <field name="nombre" />
+                            <field name="empresa" />
+                            <field name="categoria"/>
+                            <field name="contacto"/>
+                            <field name="cargo"/>
+                            <field name="correo"/>
+                            <field name="tel1"/>
+                            <field name="tel2"/>
+                            <field name="direccion"/>
+                            <field name="comentarios"/>
+                            <field name="fecha"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="contactmotion_action_window">
+        <field name="name">Oportunidades</field>
+        <field name="res_model">motion.crm_motion_oportunities</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="oportunities_list"/>
+    </record>
+
+     <record id="contact_search" model="ir.ui.view">
+        <field name="name">Oportunities serch</field>
+        <field name="model">motion.crm_motion_oportunities</field>
+        <field name="arch" type="xml">
+            <search string="Contacto">
+                <field name="nombre" />
+                <field name="tel1"/>
+                <field name="tel2"/>
+                <field name="correo"/>
+            </search>
+        </field>
+    </record>
+    <!--
+    <menuitem name="Menu 1" id="alistamientos.menu_1" parent="alistamientos.menu_root"/>
+    -->
+    <menuitem name="Mensajes Contacto" id="contact_menu_1" parent="motion_crm_menu_root"/>
+    <!-- actions -->
+    <menuitem name="Oportunidades" id="menu_admin_oportunities" parent="contact_menu_1" action="contactmotion_action_window" sequence="2"/>
+  </data>
+</odoo>

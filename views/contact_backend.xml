@@ -19,7 +19,7 @@
     </record>
     <!-- formulario alistamientos-->
 
-    <record id="fuec_form" model="ir.ui.view">
+    <record id="motion_contact_web_form" model="ir.ui.view">
             <field name="name">Formulario Contacto</field>
             <field name="model">motion.crm_contact</field>
             <field name="arch" type="xml">
