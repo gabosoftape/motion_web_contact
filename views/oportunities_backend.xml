@@ -7,13 +7,17 @@
       <field name="model">motion.crm_motion_oportunities</field>
       <field name="arch" type="xml">
         <tree>
-            <field name="nombre"/>
-            <field name="telefono"/>
-            <field name="asunto"/>
-            <field name="solicitud"/>
-            <field name="email"/>
-            <field name="empresa"/>
-            <field name="medio"/>
+            <field name="nombre" />
+            <field name="empresa" />
+            <field name="categoria"/>
+            <field name="contacto"/>
+            <field name="cargo"/>
+            <field name="correo"/>
+            <field name="tel1"/>
+            <field name="tel2"/>
+            <field name="direccion"/>
+            <field name="comentarios"/>
+            <field name="fecha"/>
         </tree>
       </field>
     </record>
@@ -40,7 +44,6 @@
                             <field name="direccion"/>
                             <field name="comentarios"/>
                             <field name="fecha"/>
-                            <field name="state"/>
                         </group>
                     </sheet>
                 </form>
