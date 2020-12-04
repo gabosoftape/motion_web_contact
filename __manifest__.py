@@ -37,6 +37,7 @@
     'data': [
         'security/crm_security.xml',
         'views/contact_backend.xml',
+        'views/op_categ_backend.xml',
         'views/oportunities_backend.xml',
         'templates/webclient_templates.xml',
         'security/ir.model.access.csv'

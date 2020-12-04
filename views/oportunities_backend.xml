@@ -68,10 +68,6 @@
             </search>
         </field>
     </record>
-    <!--
-    <menuitem name="Menu 1" id="alistamientos.menu_1" parent="alistamientos.menu_root"/>
-    -->
-    <menuitem name="Mensajes Contacto" id="contact_menu_1" parent="motion_crm_menu_root"/>
     <!-- actions -->
     <menuitem name="Oportunidades" id="menu_admin_oportunities" parent="contact_menu_1" action="oportunities_motion_action_window" sequence="2"/>
   </data>
