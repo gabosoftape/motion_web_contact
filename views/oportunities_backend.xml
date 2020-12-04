@@ -7,7 +7,6 @@
       <field name="model">motion.crm_motion_oportunities</field>
       <field name="arch" type="xml">
         <tree>
-            <field name="nombre" />
             <field name="empresa" />
             <field name="categoria"/>
             <field name="contacto"/>
@@ -32,9 +31,8 @@
                         <field name="state" widget="statusbar" clickable="True"/>
                     </header>
                     <sheet>
-                         <group string="Formulario de oportunidad nueva">
+                         <group string="Formulario de prospectos">
                             <field name="fecha" />
-                            <field name="nombre" />
                             <field name="empresa" />
                             <field name="categoria"/>
                             <field name="contacto"/>
@@ -63,7 +61,7 @@
         <field name="model">motion.crm_motion_oportunities</field>
         <field name="arch" type="xml">
             <search string="Contacto">
-                <field name="nombre" />
+                <field name="empresa" />
                 <field name="tel1"/>
                 <field name="tel2"/>
                 <field name="correo"/>
