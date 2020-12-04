@@ -33,5 +33,5 @@ class motionOportunities(models.Model):
     _description = 'Categoria Oportunidad'
     _rec_name = 'categoria'
 
-    categoria = fields.Char('Nombre de empresa', required=True)
+    categoria = fields.Char('Nombre de Categoria', required=True)
     descripcion = fields.Text('Descripcion')
