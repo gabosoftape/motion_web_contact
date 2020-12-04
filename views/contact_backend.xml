@@ -44,7 +44,7 @@
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="contactmotion_action_window">
-        <field name="name">Control de Fuec</field>
+        <field name="name">Mensajes de contacto Web</field>
         <field name="res_model">motion.crm_contact</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="contact_list"/>
