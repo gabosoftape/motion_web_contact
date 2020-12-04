@@ -18,7 +18,7 @@ class motionOportunities(models.Model):
     tel2 = fields.Char('TELEFONO 2')
     direccion = fields.Char('DIRECCIÓN')
     comentarios = fields.Char('COMENTARIOS')
-    fecha = fields.Char('FECHA DE GESTIÓN INICIAL')
+    fecha = fields.Datetime('FECHA DE GESTIÓN INICIAL')
     state = fields.Selection(
         [('cancelado', 'Descartado'), ('nuevo', 'Prospecto'), ('sin concretar', 'Pendiente (sin concretar)'), ('concretado', 'Concretado')],
         'Estado', default='nuevo')
