@@ -124,13 +124,11 @@
         <field name="model">res.partner</field>
         <field name="priority">10</field>
         <field type="xml" name="arch">
-            <field name="vat" position="after">
-				<group string="Motion Crm">
-					<field name="company_name"></field>
-					<field name="sector"></field>
-					<field name="observaciones"></field>
-					<field name="status_now"></field>
-				</group>
+			<field name="vat" position="after">
+				<field name="company_name"></field>
+				<field name="sector"></field>
+				<field name="observaciones"></field>
+				<field name="status_now"></field>
             </field>
         </field>
     </record>
