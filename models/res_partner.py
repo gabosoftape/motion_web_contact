@@ -8,3 +8,4 @@ class ResPartner(models.Model):
     sector = fields.Char(string="Sector Empresa")
     observaciones = fields.Text(string="Observaciones")
     status_now = fields.Text(string="Estado actual")
+    cargo = fields.Char(string="Cargo")
