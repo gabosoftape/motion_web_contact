@@ -21,7 +21,3 @@ class motionContact(models.Model):
         [('fb', 'Facebook'), ('sw', 'Sitio Web'), ('ig', 'Instagram'), ('tg', 'Telegram')],
         'Medio', default='fb')
 
-    @api.model
-    def create(self, vals):
-        result = super(motionContact, self).create(vals)
-        return result
