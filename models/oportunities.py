@@ -9,18 +9,16 @@ class motionOportunities(models.Model):
     _rec_name = 'empresa'
 
     empresa = fields.Char('Nombre de empresa', required=True)
-    categoria = fields.Many2one('motion.crm_motion_op_categ', string='Categoria', required=True)
+    sector = fields.Char('SECTOR')
     contacto = fields.Char('CONTACTO REF')
+    categoria = fields.Many2one('motion.crm_motion_op_categ', string='Categoria', required=True)
     cargo = fields.Char('CARGO REF')
     correo = fields.Char('CORREO')
     tel1 = fields.Char('TELEFONO 1')
     tel2 = fields.Char('TELEFONO 2')
     direccion = fields.Char('DIRECCIÓN')
     comentarios = fields.Text('COMENTARIOS')
-    fecha = fields.Datetime('FECHA DE GESTIÓN INICIAL')
-    state = fields.Selection(
-        [('cancelado', 'Descartado'), ('nuevo', 'Prospecto'), ('sin concretar', 'Pendiente (sin concretar)'), ('concretado', 'Concretado')],
-        'Estado', default='nuevo')
+    state = fields.Char('Estado Actual')
 
     @api.model
     def create(self, vals):
