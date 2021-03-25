@@ -31,7 +31,6 @@
                     </header>
                     <sheet>
                          <group string="Formulario de prospectos">
-                            <field name="fecha" />
                             <field name="empresa" />
                             <field name="categoria"/>
                             <field name="contacto"/>
