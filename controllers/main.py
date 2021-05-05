@@ -73,7 +73,11 @@ class ContactHome(Home):
                 # detectamos los factores de error comunes.
                 # time.sleep(1)
                 er = {'error': _('Invalid Creation... Required fields missing')}
-                return json.dumps(er)
+                return http.Response(
+                    json.dumps(er),
+                    status=403,
+                    mimetype='application/json'
+                )
         else:
             msg = "El metodo que usaste no esta permitido"
             res = self.error_response(request.httprequest.method, msg, 403)
