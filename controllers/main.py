@@ -56,7 +56,11 @@ class ContactHome(Home):
                     response = request.env['motion.crm_contact'].sudo().create(values)
                 except (AccessError, MissingError):
                     er = {'error': _('Invalid Creation.')}
-                    return request.response(json.dumps(er))
+                    return http.Response(
+                        json.dumps(er),
+                        status=403,
+                        mimetype='application/json'
+                    )
                 # redirigimos a okas morrocas xD
                 # time.sleep(1)  # espera en segundos
                 # return request.redirect("/contacto")
