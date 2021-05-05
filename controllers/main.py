@@ -57,7 +57,7 @@ class ContactHome(Home):
                     response = request.env['motion.crm_contact'].sudo().create(values)
                 except (AccessError, MissingError):
                     er = {'error': _('Invalid Creation.')}
-                    return request.make_response(json.dumps(er))
+                    return request.response(json.dumps(er))
                 # redirigimos a okas morrocas xD
                 # time.sleep(1)  # espera en segundos
                 # return request.redirect("/contacto")
@@ -75,7 +75,7 @@ class ContactHome(Home):
                 # detectamos los factores de error comunes.
                 # time.sleep(1)
                 er = {'error': _('Invalid Creation... Required fields missing')}
-                return request.make_response(json.dumps(er))
+                return json.dumps(er)
         else:
             msg = "El metodo que usaste no esta permitido"
             res = self.error_response(request.httprequest.method, msg, 403)
