@@ -35,21 +35,21 @@ class ContactHome(Home):
     # AGREGAR Mensaje de contacto
     # ------------------------------------------------------------
     @http.route(['/contacto/new'], auth="none", type='json', method="POST")
-    def contact_add(self, *post):
+    def contact_add(self, nombre=None, telefono=None, asunto=None,
+                    solicitud=None, email=None, empresa=None):
         # recibimos las variables de post
         # en caso de que se cuenten con los minimos datos
-        print(post)
         if request.httprequest.method == 'POST':
-            print("nombre")
-            if True:
+            print(nombre)
+            if nombre and telefono and asunto and solicitud and email and empresa:
                 print('parece que todo ok')
                 values = {
-                    'nombre': "nombre",
-                    'telefono': "telefono",
-                    'asunto': "asunto",
-                    'solicitud': "solicitud",
-                    'email': "email",
-                    'empresa': "empresa",
+                    'nombre': nombre,
+                    'telefono': telefono,
+                    'asunto': asunto,
+                    'solicitud': solicitud,
+                    'email': email,
+                    'empresa': empresa,
                     'medio': 'sw',
                     'state': 'nuevo'
                 }
@@ -63,14 +63,10 @@ class ContactHome(Home):
                 # time.sleep(1)  # espera en segundos
                 # return request.redirect("/contacto")
                 res = {
-                    "count": 1,
-                    "result_id": response.id
+                    "msg_status": "Created",
+                    "msg_id": response.id
                 }
-                return http.Response(
-                    json.dumps(res),
-                    status=200,
-                    mimetype='application/json'
-                )
+                return res
             else:
                 # redirigimos a error o a ok dependiendo las validaciones
                 # detectamos los factores de error comunes.
