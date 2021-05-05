@@ -24,7 +24,7 @@
 {
     'name': 'Motion Web Contact Screen',
     'summary': 'The new configurable Motion Web contact Screen',
-    'version': '13.0.1.0',
+    'version': '14.0.1.0',
     'category': 'Website',
     'summary': """
             The new configurable Odoo Web Login Screen

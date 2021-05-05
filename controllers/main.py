@@ -22,104 +22,89 @@
 ##############################################################################
 
 
-import babel.messages.pofile
-import base64
-import copy
-import datetime
-import functools
-import glob
-import hashlib
-import io
-import itertools
-import jinja2
+
 import json
 import logging
-import operator
-import os
-import re
-import sys
-import tempfile
 import time
-
-import werkzeug
-import werkzeug.exceptions
-import werkzeug.utils
-import werkzeug.wrappers
-import werkzeug.wsgi
-from collections import OrderedDict, defaultdict, Counter
-from werkzeug.urls import url_decode, iri_to_uri
-from lxml import etree
-import unicodedata
-
-
-import odoo
-import odoo.modules.registry
-from odoo.api import call_kw, Environment
-from odoo.modules import get_module_path, get_resource_path
-from odoo.tools import image_process, topological_sort, html_escape, pycompat, ustr, apply_inheritance_specs, lazy_property
-from odoo.tools.mimetypes import guess_mimetype
+from werkzeug.utils import redirect
 from odoo.tools.translate import _
-from odoo.tools.misc import str2bool, xlsxwriter, file_open
-from odoo.tools.safe_eval import safe_eval
 from odoo import http, tools
-from odoo.http import content_disposition, dispatch_rpc, request, serialize_exception as _serialize_exception, Response
+from odoo.http import content_disposition, dispatch_rpc, request, Response
 from odoo.exceptions import AccessError, UserError, AccessDenied, MissingError
-from odoo.models import check_method_name
-from odoo.service import db, security
 
 from odoo.addons.web.controllers.main import ensure_db, Home
-
-_logger = logging.getLogger(__name__)
 
 
 #----------------------------------------------------------
 # Odoo Web web Controllers
 #----------------------------------------------------------
 class ContactHome(Home):
+    _logger = logging.getLogger(__name__)
 
-    @http.route('/contacto', type='http', auth="none", website=True)
-    def web_contact(self, redirect=None, **kw):
-        response = request.render("motion_web_contact.portal_contact_form")
-        response.headers['X-Frame-Options'] = 'DENY'
-        return response
+    def error_response(self, error, msg, code):
+        return {
+            "jsonrpc": "2.0",
+            "id": None,
+            "error": {
+                "code": code,
+                "message": msg,
+                "data": {
+                    "name": str(error),
+                    "debug": "",
+                    "message": msg,
+                }
+            }
+        }
 
     # ------------------------------------------------------------
     # AGREGAR Mensaje de contacto
     # ------------------------------------------------------------
-    @http.route(['/contacto/new'], auth="none", type='http', website=True)
-    def contact_add(self, **post):
-        print(post)
+    @http.route(['/contacto/new'], auth="none", type='http', method="POST")
+    def contact_add(self, nombre, telefono, asunto, solicitud, email, empresa):
         # recibimos las variables de post
-        nombre = post.get('nombre')
-        telefono = post.get('telefono')
-        asunto = post.get('asunto')
-        solicitud = post.get('solicitud')
-        email = post.get('email')
-        empresa = post.get('empresa')
         # en caso de que se cuenten con los minimos datos
-        if nombre and telefono and asunto and solicitud and email:
-            print('parece que todo ok')
-            values = {
-                'nombre': nombre,
-                'telefono': telefono,
-                'asunto': asunto,
-                'solicitud': solicitud,
-                'email': email,
-                'empresa': empresa,
-                'medio': 'sw',
-                'state': 'nuevo'
-            }
-            # creamos nuevo mensaje de contacto
-            try:
-                request.env['motion.crm_contact'].sudo().create(values)
-            except (AccessError, MissingError):
-                er = {'error': _('Invalid Creation.')}
+        if request.httprequest.method == 'POST':
+            itf nombre and telefono and asunto and solicitud and email:
+                print('parece que todo ok')
+                values = {
+                    'nombre': nombre,
+                    'telefono': telefono,
+                    'asunto': asunto,
+                    'solicitud': solicitud,
+                    'email': email,
+                    'empresa': empresa,
+                    'medio': 'sw',
+                    'state': 'nuevo'
+                }
+                # creamos nuevo mensaje de contacto
+                try:
+                    response = request.env['motion.crm_contact'].sudo().create(values)
+                except (AccessError, MissingError):
+                    er = {'error': _('Invalid Creation.')}
+                    return request.make_response(json.dumps(er))
+                # redirigimos a okas morrocas xD
+                # time.sleep(1)  # espera en segundos
+                # return request.redirect("/contacto")
+                res = {
+                    "count": 1,
+                    "result_id": response.id
+                }
+                return http.Response(
+                    json.dumps(res),
+                    status=200,
+                    mimetype='application/json'
+                )
+            else:
+                # redirigimos a error o a ok dependiendo las validaciones
+                # detectamos los factores de error comunes.
+                # time.sleep(1)
+                er = {'error': _('Invalid Creation... Required fields missing')}
                 return request.make_response(json.dumps(er))
-            # redirigimos a okas morrocas xD
-            time.sleep(1)  # espera en segundos
-            return request.redirect("/contacto")
         else:
-            # redirigimos a error o a ok dependiendo las validaciones
-            # detectamos los factores de error comunes.
-            return request.redirect("/")
-
+            msg = "El metodo que usaste no esta permitido"
+            res = self.error_response(request.httprequest.method, msg, 403)
+            return http.Response(
+                json.dumps(res),
+                status=403,
+                mimetype='application/json'
+            )
