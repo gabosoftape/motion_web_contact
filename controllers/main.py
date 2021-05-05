@@ -34,7 +34,7 @@ class ContactHome(Home):
     # ------------------------------------------------------------
     # AGREGAR Mensaje de contacto
     # ------------------------------------------------------------
-    @http.route(['/contacto/new'], auth="none", type='json', method="POST")
+    @http.route(['/contacto/new'], auth="none", type='json', method="POST", cors="*")
     def contact_add(self, nombre=None, telefono=None, asunto=None,
                     solicitud=None, email=None, empresa=None):
         # recibimos las variables de post

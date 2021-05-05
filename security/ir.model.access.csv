@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_manager_motion_contact,access_manager_motion_contact,model_motion_crm_contact,motion_web_contact.group_crm_motion_admin,1,1,1,1
+access_motion_contact_portal,access_motion_contact_portal,model_motion_crm_contact,base.group_portal,1,1,1,0
