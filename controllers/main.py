@@ -40,9 +40,7 @@ class ContactHome(Home):
         # recibimos las variables de post
         # en caso de que se cuenten con los minimos datos
         if request.httprequest.method == 'POST':
-            print(nombre)
             if nombre and telefono and asunto and solicitud and email and empresa:
-                print('parece que todo ok')
                 values = {
                     'nombre': nombre,
                     'telefono': telefono,
@@ -63,7 +61,6 @@ class ContactHome(Home):
                 # time.sleep(1)  # espera en segundos
                 # return request.redirect("/contacto")
                 res = {
-                    "msg_status": "Created",
                     "msg_id": response.id
                 }
                 return res
