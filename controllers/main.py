@@ -64,7 +64,7 @@ class ContactHome(Home):
         # recibimos las variables de post
         # en caso de que se cuenten con los minimos datos
         if request.httprequest.method == 'POST':
-            itf nombre and telefono and asunto and solicitud and email:
+            if nombre and telefono and asunto and solicitud and email:
                 print('parece que todo ok')
                 values = {
                     'nombre': nombre,
